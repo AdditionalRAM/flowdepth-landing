@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 import '@fontsource-variable/inter'
+import '@fontsource-variable/comfortaa'
 import { theme as baseTheme } from '@saas-ui/react'
 
 import components from './components'
@@ -9,7 +10,7 @@ export const theme = extendTheme(
   {
     config: {
       initialColorMode: 'dark',
-      useSystemColorMode: false,
+      useSystemColorMode: true,
     },
     styles: {
       global: (props: any) => ({
@@ -24,9 +25,24 @@ export const theme = extendTheme(
         },
       }),
     },
+    colors: {
+      "primary": {
+        "main": "#197EE6",
+        "50": "#E8F2FD",
+        "100": "#BFDBF8",
+        "200": "#95C4F4",
+        "300": "#6CADEF",
+        "400": "#4295EB",
+        "500": "#197EE6",
+        "600": "#1465B8",
+        "700": "#0F4C8A",
+        "800": "#0A325C",
+        "900": "#05192E"
+      }
+    },
     fonts: {
-      heading: 'Inter Variable, Inter, sans-serif',
-      body: 'Inter Variable, Inter, sans-serif',
+      heading: 'Comfortaa Variable, Comfortaa, sans-serif',
+      body: 'Comfortaa Variable, Comfortaa, sans-serif',
     },
     fontSizes,
     components,

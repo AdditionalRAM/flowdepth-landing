@@ -8,8 +8,8 @@ import { Logo } from './logo'
 const siteConfig = {
   logo: Logo,
   seo: {
-    title: 'Saas UI',
-    description: 'The React component library for startups',
+    title: 'Flowdepth',
+    description: 'Get productive and stay accountable with Flowdepth.',
   } as NextSeoProps,
   termsUrl: '#',
   privacyUrl: '#',
@@ -28,12 +28,12 @@ const siteConfig = {
         label: 'FAQ',
       },
       {
-        label: 'Login',
-        href: '/login',
+        label: 'Waitlist',
+        href: '/waitlist',
       },
       {
         label: 'Sign Up',
-        href: '/signup',
+        href: '/waitlist',
         variant: 'primary',
       },
     ],
@@ -42,22 +42,22 @@ const siteConfig = {
     copyright: (
       <>
         Built by{' '}
-        <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link>
+        <Link href="https://github.com/AdditionalRAM">AdditionalRAM</Link>
       </>
     ),
     links: [
       {
-        href: 'mailto:hello@saas-ui.dev',
-        label: 'Contact',
+        href: '/legal',
+        label: 'Legal',
       },
-      {
-        href: 'https://twitter.com/saas_js',
-        label: <FaTwitter size="14" />,
-      },
-      {
-        href: 'https://github.com/saas-js/saas-ui',
-        label: <FaGithub size="14" />,
-      },
+      // {
+      //   href: 'https://twitter.com/saas_js',
+      //   label: <FaTwitter size="14" />,
+      // },
+      // {
+      //   href: 'https://github.com/saas-js/saas-ui',
+      //   label: <FaGithub size="14" />,
+      // },
     ],
   },
   signup: {

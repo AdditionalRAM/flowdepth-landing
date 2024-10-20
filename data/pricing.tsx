@@ -1,113 +1,66 @@
 import { HStack, Text } from '@chakra-ui/react'
 
 export default {
-  title: 'Pricing for every stage',
-  description:
-    'Pay once and get life-time access to our high quality components.',
+  title: 'Pricing',
+  description: 'Join the waitlist to get Abyss for free!',
   plans: [
     {
-      id: 'oss',
-      title: 'Open Source',
-      description: 'Basic compoents, perfect to get started.',
+      id: 'free',
+      title: 'Deep',
+      description: 'Dive deep into your productivity.',
       price: 'Free',
       features: [
-        {
-          title: 'MIT License',
-        },
-        {
-          title: 'Authentication (Clerk/Supabase/Magic)',
-        },
-        {
-          title: 'Form (react-hook-form)',
-        },
-        {
-          title: 'Modals manager',
-        },
-        {
-          title: 'Hotkeys',
-        },
-        {
-          title: 'Web3 components',
-        },
-        {
-          title: 'And much more...',
-        },
+        { title: 'Productivity timer' },
+        { title: 'Kickstart timer' },
+        { title: 'Daily goals' },
+        { title: '3 Categories' },
+        { title: 'Cross-platform sync' },
+        { title: 'Accountability with friends' },
+        { title: 'And much more...' },
       ],
       action: {
-        href: '#',
+        href: '/waitlist',
       },
     },
     {
-      id: 'bootstrap',
-      title: 'Bootstrap',
-      description: 'Complete frontend stack for bootstrappers and small teams.',
-      price: 'Free',
-      isRecommended: true,
-      features: [
-        {
-          title: 'One project',
-        },
-        {
-          title: 'One developer',
-        },
-        {
-          title: 'Advanced components',
-        },
-        {
-          title: 'Multiple themes',
-        },
-        {
-          title: 'Next.js and Electron boilerplates',
-        },
-        {
-          title: 'Private discord community',
-        },
-        {
-          title: '1 year of updates',
-        },
-        null,
-        {
-          title: 'Private beta access',
-          iconColor: 'green.500',
-        },
-      ],
-      action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
-      },
-    },
-    {
-      id: 'startup',
-      title: 'Startup',
-      description: 'Unlimited license for growing teams.',
+      id: 'premium',
+      title: 'Abyss',
+      description: 'Enhance your focus and productivity tracking.',
       price: (
         <HStack>
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            €999,-
+            €1.99/month
           </Text>
-          <Text>€499,-</Text>
+          <Text>FREE (waitlist)</Text>
         </HStack>
       ),
+      isRecommended: true,
       features: [
-        {
-          title: 'Unlimited projects',
-        },
-        {
-          title: 'Unlimited developers',
-        },
-        {
-          title: '1 year of updates',
-        },
-        {
-          title: 'Everything from Bootstrap',
-        },
-        null,
-        {
-          title: 'Private beta access',
-          iconColor: 'green.500',
-        },
+        { title: 'Everything in Deep' },
+        { title: 'Customizable goals' },
+        { title: 'Unlimited categories' },
+        { title: 'Flow Together' },
+        { title: 'Exclusive cosmetics' },
+        { title: 'Profile badge' },
       ],
       action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
+        href: '/waitlist',
+      },
+    },
+    {
+      id: 'enterprise',
+      title: 'Enterprise',
+      description: 'Manage your team’s productivity flow.',
+      price: 'Custom',
+      features: [
+        { title: 'Everything in Abyss' },
+        { title: 'Team management' },
+        { title: 'Collaborative flow' },
+        { title: 'External app usage tracking' },
+        { title: 'Analytics and reports' },
+      ],
+      action: {
+        href: '/waitlist',
       },
     },
   ],
