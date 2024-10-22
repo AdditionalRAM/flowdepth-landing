@@ -1,3 +1,4 @@
+'use client';
 import { chakra, HTMLChakraProps, useColorModeValue } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
@@ -10,7 +11,7 @@ export const Logo: React.FC<HTMLChakraProps<'svg'>> = (props) => {
   return (
     <img
       src="/static/flowdepth.svg"
-      alt="Flowdepth"
+      alt="flowdepth"
       style={{
         height: '32px',
         transition: 'all 0.2s ease',

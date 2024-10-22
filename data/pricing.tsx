@@ -19,7 +19,7 @@ export default {
         { title: 'And much more...' },
       ],
       action: {
-        href: '/waitlist',
+        href: '#waitlist',
       },
     },
     {
@@ -44,7 +44,7 @@ export default {
         { title: 'Profile badge' },
       ],
       action: {
-        href: '/waitlist',
+        href: '#waitlist',
       },
     },
     {
@@ -60,7 +60,7 @@ export default {
         { title: 'Analytics and reports' },
       ],
       action: {
-        href: '/waitlist',
+        href: '#waitlist',
       },
     },
   ],

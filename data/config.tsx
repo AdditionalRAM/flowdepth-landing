@@ -2,14 +2,14 @@ import { Button } from '@chakra-ui/react'
 import { Link } from '@saas-ui/react'
 import { NextSeoProps } from 'next-seo'
 import { FaGithub, FaTwitter } from 'react-icons/fa'
-import { FiCheck } from 'react-icons/fi'
+import { FiCheck, FiClock, FiFastForward, FiFlag, FiUsers } from 'react-icons/fi'
 import { Logo } from './logo'
 
 const siteConfig = {
   logo: Logo,
   seo: {
-    title: 'Flowdepth',
-    description: 'Get productive and stay accountable with Flowdepth.',
+    title: 'flowdepth',
+    description: 'Get productive and stay accountable with flowdepth.',
   } as NextSeoProps,
   termsUrl: '#',
   privacyUrl: '#',
@@ -24,16 +24,16 @@ const siteConfig = {
         label: 'Pricing',
       },
       {
+        label: 'Waitlist',
+        id: 'waitlist',
+      },
+      {
         id: 'faq',
         label: 'FAQ',
       },
       {
-        label: 'Waitlist',
-        href: '/waitlist',
-      },
-      {
         label: 'Sign Up',
-        href: '/waitlist',
+        id: 'waitlist',
         variant: 'primary',
       },
     ],
@@ -47,8 +47,20 @@ const siteConfig = {
     ),
     links: [
       {
-        href: '/legal',
-        label: 'Legal',
+        href: '/#waitlist',
+        label: 'Waitlist',
+      },
+      {
+        href: '/legal#imprint',
+        label: 'Imprint',
+      },
+      {
+        href: '/legal#privacy',
+        label: 'Privacy',
+      },
+      {
+        href: '/legal#contact',
+        label: 'Contact',
       },
       // {
       //   href: 'https://twitter.com/saas_js',
@@ -61,30 +73,30 @@ const siteConfig = {
     ],
   },
   signup: {
-    title: 'Start building with Saas UI',
+    title: 'Get productive and stay accountable with flowdepth.',
     features: [
       {
-        icon: FiCheck,
-        title: 'Accessible',
-        description: 'All components strictly follow WAI-ARIA standards.',
+        icon: FiClock,
+        title: 'Pomodoro',
+        description: 'Stay focused with an automated Pomodoro timer.',
       },
       {
-        icon: FiCheck,
-        title: 'Themable',
+        icon: FiFastForward,
+        title: 'Kickstart',
         description:
-          'Fully customize all components to your brand with theme support and style props.',
+          'Quick-start timer to break procrastination and get to work.',
       },
       {
-        icon: FiCheck,
-        title: 'Composable',
+        icon: FiFlag,
+        title: 'Progress',
         description:
-          'Compose components to fit your needs and mix them together to create new ones.',
+          'Set goals, track stats, and stay motivated.',
       },
       {
-        icon: FiCheck,
-        title: 'Productive',
+        icon: FiUsers,
+        title: 'Accountability',
         description:
-          'Designed to reduce boilerplate and fully typed, build your product at speed.',
+          'Share your progress with others to stay accountable.',
       },
     ],
   },

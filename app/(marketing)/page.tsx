@@ -16,33 +16,18 @@ import {
   Wrap,
   useClipboard,
 } from '@chakra-ui/react'
-import { Br, Link } from '@saas-ui/react'
+import { Br, Field, Form, FormLayout, Link, SubmitButton } from '@saas-ui/react'
 import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
 import {
   FiArrowRight,
-  FiBox,
-  FiCheck,
   FiClock,
-  FiCode,
-  FiCopy,
   FiFastForward,
   FiFlag,
-  FiGrid,
-  FiLock,
-  FiSearch,
-  FiSliders,
-  FiSmile,
-  FiTerminal,
-  FiThumbsUp,
-  FiToggleLeft,
-  FiTrendingUp,
-  FiUserPlus,
   FiUsers,
 } from 'react-icons/fi'
 
 import * as React from 'react'
-
 import { ButtonLink } from '#components/button-link/button-link'
 import { Faq } from '#components/faq'
 import { Features } from '#components/features'
@@ -61,6 +46,8 @@ import { Em } from '#components/typography'
 import faq from '#data/faq'
 import pricing from '#data/pricing'
 import testimonials from '#data/testimonials'
+import { Section } from '#components/section'
+import { useState } from 'react'
 
 export const meta: Metadata = {
   title: 'Saas UI Landingspage',
@@ -80,6 +67,8 @@ const Home: NextPage = () => {
 
       <PricingSection />
 
+      <FormSection />
+
       <FaqSection />
     </Box>
   )
@@ -87,7 +76,7 @@ const Home: NextPage = () => {
 
 const HeroSection: React.FC = () => {
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position="relative" overflow="hidden" id="features">
       <BackgroundGradient height="100%" zIndex="-1" />
       <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
         <Stack direction={{ base: 'column', lg: 'row' }} alignItems="center">
@@ -104,12 +93,12 @@ const HeroSection: React.FC = () => {
             description={
               <>
               <FallInPlace delay={0.4} fontWeight="medium">
-                <Em>Flowdepth</Em> tracks your productive hours and lets you share your progress with friends for extra accountability. <Br />
+                <Em>flowdepth</Em> tracks your productive hours and lets you share your progress with friends for extra accountability. <Br />
                 Stay on top of your goals together!
               </FallInPlace>
               <FallInPlace delay={0.6} fontWeight="medium">
                 <Br />
-                Join the <Em>waitlist</Em> to get Flowdepth early <Br />
+                Join the <Em>waitlist</Em> to get flowdepth early <Br />
                 and get a <Em>free</Em> upgrade to Abyss.
               </FallInPlace>
               </>
@@ -121,12 +110,12 @@ const HeroSection: React.FC = () => {
               </HStack>
 
               <ButtonGroup spacing={4} alignItems="center">
-                {/* <ButtonLink colorScheme="primary" size="lg" href="/waitlist">
+                {/* <ButtonLink colorScheme="primary" size="lg" href="#waitlist">
                   Sign Up
                 </ButtonLink> */}
                 <ButtonLink
                   size="lg"
-                  href="/waitlist"
+                  href="#waitlist"
                   variant="outline"
                   colorScheme='primary'
                   rightIcon={
@@ -159,11 +148,12 @@ const HeroSection: React.FC = () => {
             <FallInPlace delay={1}>
               <Box overflow="hidden" height="100%">
                 <Image
-                  src="/static/screenshots/list.png"
-                  width={1200}
-                  height={762}
-                  alt="Screenshot of a ListPage in Saas UI Pro"
+                  src="/static/screenshots/flowdepth-mockup.png"
+                  width={600}
+                  height={850}
+                  alt="Prototype Screenshot of flowdepth"
                   quality="75"
+                  style={{objectFit: "contain"}}
                   priority
                 />
               </Box>
@@ -232,7 +222,7 @@ const HighlightsSection = () => {
       </HighlightsItem>
       <HighlightsItem title="Two steps ahead">
         <Text color="muted" fontSize="lg">
-        Gain an edge with focus and accountability. Flowdepth keeps you sharp, motivated, and ahead of the competition.
+        Gain an edge with focus and accountability. flowdepth keeps you sharp, motivated, and ahead of the competition.
         </Text>
       </HighlightsItem>
       <HighlightsItem
@@ -249,7 +239,7 @@ const HighlightsSection = () => {
       >
         <Text color="muted" fontSize="xl">
           Why reinvent the wheel? 
-          Flowdepth utilizes the proven <Em>Pomodoro Technique</Em> to keep you in a state of flow. <Br />
+          flowdepth utilizes the proven <Em>Pomodoro Technique</Em> to keep you in a state of flow. <Br />
           Maximize productivity while maintaining your mental sharpness.
         </Text>
       </HighlightsItem>
@@ -404,6 +394,93 @@ const PricingSection = () => {
 
 const FaqSection = () => {
   return <Faq {...faq} />
+}
+
+export const FormSection: React.FC = () => {
+  const FORMSPARK_URL = 'https://submit-form.com/JUgGh098D';
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (values: { email: string }) => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(FORMSPARK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json', // Important to include
+        },
+        body: JSON.stringify({
+          message: "New submission", // Customize this message if needed
+          email: values.email, // Pass email from the form
+          _email: {
+            from: values.email, // Set the from field if needed
+            subject: "A new user has joined the waitlist", // Customize subject as necessary
+          },
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Section id="waitlist" pos="relative">
+      <Box zIndex="2" pos="relative">
+        <VStack align="center" spacing={6}>
+          {/* Section Title */}
+          <Heading as="h2" size="xl" fontWeight="bold">
+            Join the flowdepth Waitlist
+          </Heading>
+          <Text fontSize="lg" color="gray.600">
+            Be the first to know when we launch. Get updates, feature testing invites, and a free upgrade to Abyss!
+          </Text>
+
+          {/* Form */}
+          <div>
+            {!submitted ? (
+              <Form defaultValues={{ email: '' }} onSubmit={handleSubmit}>
+                <FormLayout>
+                  <Field
+                    name="email"
+                    label="Email"
+                    type="email"
+                    help="We'll send you updates about the app and the free upgrade to Abyss. No spam ever."
+                    rules={{ required: true }} // Assuming you have a way to validate this
+                  />
+                  <SubmitButton isLoading={isSubmitting} disableIfUntouched disableIfInvalid>
+                    Join the waitlist
+                  </SubmitButton>
+                </FormLayout>
+              </Form>
+            ) : (
+              <Text fontSize="lg" color="green.500">
+                Thank you for joining the waitlist!
+              </Text>
+            )}
+
+            {/* GDPR Notice */}
+            <Text fontSize="sm" color="gray.500" mt={4}>
+              By joining the waitlist, you agree to receive emails from flowdepth. You can unsubscribe anytime. See our{' '}
+              <a href="/legal#privacy" style={{ textDecoration: 'underline' }}>
+                Privacy Policy
+              </a>
+              . No spam.
+            </Text>
+          </div>
+        </VStack>
+      </Box>
+    </Section>
+  );
 }
 
 export default Home

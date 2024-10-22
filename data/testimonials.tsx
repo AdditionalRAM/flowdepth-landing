@@ -27,7 +27,7 @@ export default {
       avatar: '/static/images/avatar2.jpg',
       children: (
         <>
-          “Flowdepth has become an essential part of my producitivy. At this point I am unsure where I would be without it.”
+          “flowdepth has become an essential part of my producitivy. At this point I am unsure where I would be without it.”
         </>
       ),
     }
