@@ -465,11 +465,10 @@ const FormSection = () => {
 
             {/* GDPR Notice */}
             <Text fontSize="sm" color="gray.500" mt={4}>
-              By joining the waitlist, you agree to receive emails from flowdepth. You can unsubscribe anytime. See our{' '}
-              <a href="/legal#privacy" style={{ textDecoration: 'underline' }}>
+              By joining the waitlist, you agree to receive emails from flowdepth. You can unsubscribe anytime. <Link style={{ textDecoration: 'underline' }} href='/legal/#terms'>Terms</Link> apply. See our{' '}
+              <Link href="/legal#privacy" style={{ textDecoration: 'underline' }}>
                 Privacy Policy
-              </a>
-              . No spam.
+              </Link>.
             </Text>
           </div>
         </VStack>

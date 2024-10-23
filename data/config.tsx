@@ -59,6 +59,10 @@ const siteConfig = {
         label: 'Privacy',
       },
       {
+        href: '/legal#terms',
+        label: 'Terms',
+      },
+      {
         href: '/legal#contact',
         label: 'Contact',
       },
