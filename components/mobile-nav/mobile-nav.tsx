@@ -116,7 +116,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
               </Flex>
               <Stack alignItems="stretch" spacing="0">
                 {siteConfig.header.links.map(
-                  ({ href, id, label, ...props }, i) => {
+                  ({ href, id, label, ...props }: { href?: string; id: string; label: string; variant?: string }, i) => {
                     return (
                       <NavLink
                         href={href || `/#${id}`}

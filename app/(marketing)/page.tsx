@@ -49,11 +49,6 @@ import testimonials from '#data/testimonials'
 import { Section } from '#components/section'
 import { useState } from 'react'
 
-export const meta: Metadata = {
-  title: 'Saas UI Landingspage',
-  description: 'Free SaaS landingspage starter kit',
-}
-
 const Home: NextPage = () => {
   return (
     <Box>
@@ -396,7 +391,7 @@ const FaqSection = () => {
   return <Faq {...faq} />
 }
 
-export const FormSection: React.FC = () => {
+const FormSection = () => {
   const FORMSPARK_URL = 'https://submit-form.com/JUgGh098D';
   
   const [isSubmitting, setIsSubmitting] = useState(false);

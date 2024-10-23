@@ -12,11 +12,6 @@ import {
 } from '@chakra-ui/react'
 import { Metadata, NextPage } from 'next'
 
-export const meta: Metadata = {
-  title: 'Legal Information',
-  description: 'Imprint and Privacy Policy for GDPR Compliance',
-}
-
 const LegalPage: NextPage = () => {
   return (
     <Box>

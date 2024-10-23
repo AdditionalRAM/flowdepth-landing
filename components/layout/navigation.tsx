@@ -33,7 +33,7 @@ const Navigation: React.FC = () => {
 
   return (
     <HStack spacing="2" flexShrink={0}>
-      {siteConfig.header.links.map(({ href, id, ...props }, i) => {
+      {siteConfig.header.links.map(({ href, id, ...props }: { href?: string; id: string; label: string; variant?: string }, i) => {
         return (
           <NavLink
             display={['none', null, 'block']}

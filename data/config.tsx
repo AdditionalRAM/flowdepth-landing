@@ -11,8 +11,8 @@ const siteConfig = {
     title: 'flowdepth',
     description: 'Get productive and stay accountable with flowdepth.',
   } as NextSeoProps,
-  termsUrl: '#',
-  privacyUrl: '#',
+  termsUrl: '/legal',
+  privacyUrl: '/legal',
   header: {
     links: [
       {
