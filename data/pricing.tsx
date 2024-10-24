@@ -29,7 +29,7 @@ export default {
       price: (
         <HStack>
           <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            €1.99/month
+            €8.99/month
           </Text>
           <Text>FREE (waitlist)</Text>
         </HStack>
@@ -42,6 +42,7 @@ export default {
         { title: 'Flow Together' },
         { title: 'Exclusive cosmetics' },
         { title: 'Profile badge' },
+        { title: 'Advanced accountability' },
       ],
       action: {
         href: '#waitlist',
@@ -50,7 +51,7 @@ export default {
     {
       id: 'enterprise',
       title: 'Enterprise',
-      description: 'Manage your team’s productivity flow.',
+      description: "Manage your team's productivity and flow.",
       price: 'Custom',
       features: [
         { title: 'Everything in Abyss' },

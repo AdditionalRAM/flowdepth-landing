@@ -16,16 +16,31 @@ import {
   Wrap,
   useClipboard,
 } from '@chakra-ui/react'
-import { Br, Field, Form, FormLayout, Link, SubmitButton } from '@saas-ui/react'
+import { Br, Field, Form, FormLayout, Link, SubmitButton, useSnackbar } from '@saas-ui/react'
 import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
 import {
   FiArrowRight,
+  FiBarChart,
+  FiBox,
   FiClock,
+  FiCloud,
+  FiCode,
+  FiCrosshair,
   FiFastForward,
   FiFlag,
+  FiFolder,
+  FiLock,
+  FiPlay,
+  FiSearch,
+  FiStar,
+  FiTerminal,
+  FiToggleLeft,
+  FiTrendingUp,
+  FiUserPlus,
   FiUsers,
 } from 'react-icons/fi'
+import { LuFastForward, LuGamepad2, LuLineChart } from 'react-icons/lu'
 
 import * as React from 'react'
 import { ButtonLink } from '#components/button-link/button-link'
@@ -54,9 +69,11 @@ const Home: NextPage = () => {
     <Box>
       <HeroSection />
 
-      <HighlightsSection />
+      <IntrigueSection />
 
       <FeaturesSection />
+
+      <HighlightsSection />
 
       <TestimonialsSection />
 
@@ -73,7 +90,7 @@ const HeroSection: React.FC = () => {
   return (
     <Box position="relative" overflow="hidden" id="features">
       <BackgroundGradient height="100%" zIndex="-1" />
-      <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
+      <Container maxW="container.xl" pt={{ base: 20, lg: 40 }} pb="40">
         <Stack direction={{ base: 'column', lg: 'row' }} alignItems="center">
           <Hero
             id="home"
@@ -81,20 +98,20 @@ const HeroSection: React.FC = () => {
             px="0"
             title={
               <FallInPlace>
-                Manage your
-                <Br /> productive time
+                Step up your
+                <Br /> productivity
               </FallInPlace>
             }
             description={
               <>
               <FallInPlace delay={0.4} fontWeight="medium">
-                <Em>flowdepth</Em> tracks your productive hours and lets you share your progress with friends for extra accountability. <Br />
-                Stay on top of your goals together!
+              For students who are <Em>tired of procrastination</Em>. <Br /> <Em>flowdepth</Em> helps you track your progress and keep you motivated and accountable via social pressure.
               </FallInPlace>
               <FallInPlace delay={0.6} fontWeight="medium">
                 <Br />
                 Join the <Em>waitlist</Em> to get flowdepth early <Br />
-                and get a <Em>free</Em> upgrade to Abyss.
+                and get a <Em>free</Em> upgrade to Abyss. <Br />
+                We won't share your email with anyone.
               </FallInPlace>
               </>
             }
@@ -126,7 +143,7 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
-                  Join the waitlist
+                  Secure my free upgrade
                 </ButtonLink>
               </ButtonGroup>
             </FallInPlace>
@@ -165,33 +182,33 @@ const HeroSection: React.FC = () => {
         pt="20"
         features={[
           {
-            title: 'Pomodoro',
-            icon: FiClock,
-            description: 'Stay focused with an automated Pomodoro timer.',
+            title: 'Stay focused, effortlessly',
+            icon: FiCrosshair,
+            description: 'Automated Pomodoro timer keeps you on task with timed work and breaks, boosting productivity.',
             iconPosition: 'left',
             delay: 0.6,
           },
           {
-            title: 'Kickstart',
-            icon: FiFastForward,
+            title: 'Instantly beat procrastination',
+            icon: LuFastForward,
             description:
-              'Quick-start timer to break procrastination and get to work.',
+              'The Kickstart timer helps you dive into work quickly with short bursts to overcome procrastination.',
             iconPosition: 'left',
             delay: 0.8,
           },
           {
-            title: 'Track your progress',
-            icon: FiFlag,
+            title: 'Track progress, achieve more',
+            icon: LuLineChart,
             description:
-              'Set goals, track stats, and stay motivated.',
+              "Set goals, track progress, and see how far you've come to stay motivated and focused.",
             iconPosition: 'left',
             delay: 1,
           },
           {
-            title: 'Accountability',
+            title: 'Accountability made social',
             icon: FiUsers,
             description:
-              'Share your progress with others to stay accountable.',
+              'Share progress with friends for an extra push, keeping you accountable to reach your goals.',
             iconPosition: 'left',
             delay: 1.1,
           },
@@ -202,30 +219,145 @@ const HeroSection: React.FC = () => {
   )
 }
 
+const IntrigueSection = () => {
+  return (
+    <Section id="intrigue" py="20">
+      <Stack spacing="8">
+        <Heading as="h2" size="xl" textAlign="left">
+          How do they do it?
+        </Heading>
+        <Text fontSize="xl" color="gray.400" textAlign="left">
+          Some students seem to do it all, don&apos;t they? <Br />
+          Discover the strategy the “smart kids” use to meet every deadline and have free time left. <Br />
+          And yes, you can do it too. <Br />
+        </Text>
+      </Stack>
+      <Stack spacing="8" py="20" pb="0">
+        <Heading as="h2" size="xl" textAlign="left">
+          Your #1 issue.
+        </Heading>
+        <Text fontSize="xl" color="gray.400" textAlign="left">
+          Let&apos;s be real - procrastination is holding you back. <Br />
+          You have time and want to study, but you just can&apos;t get yourself to do it. <Br />
+          Instead you put off work, scrolling through social media, or getting distracted by your phone while “working”. <Br />
+        </Text>
+      </Stack>
+    </Section>
+  )
+}
+
+const FeaturesSection = () => {
+  return (
+    <Features
+      id="features"
+      title={
+        <Heading
+          lineHeight="short"
+          fontSize={['2xl', null, '4xl']}
+          textAlign="left"
+          as="p"
+        >
+          Unlock your
+          <Br /> full potential.
+        </Heading>
+      }
+      description={
+        <>
+          flowdepth is no simple pomodoro timer.
+          <Br />
+          It&apos;s a productivity system designed to help students tackle procrastination, stay organized and improve focus. Make more time for the things you love while getting better grades.
+        </>
+      }
+      align="left"
+      columns={[1, 2, 3]}
+      iconSize={4}
+      features={[
+        {
+            title: 'Cross-Platform Sync.',
+            icon: FiCloud,
+            description:
+                'Access Flowdepth on any device - laptop, tablet, or phone. Whether typing, writing notes, or using pen and paper, Flowdepth keeps everything connected.',
+            variant: 'inline',
+        },
+        {
+            title: 'Simple & Ready to Use.',
+            icon: FiPlay,
+            description:
+                'No setup required, no learning curve - just dive in. The intuitive UI ensures you stay focused on your tasks while Flowdepth handles the rest.',
+            variant: 'inline',
+        },
+        {
+            title: 'Progress Tracker.',
+            icon: FiTrendingUp,
+            description:
+                "Set daily goals and visualize your achievements. Look back and see how far you've come as you build lasting habits.",
+            variant: 'inline',
+        },
+        {
+            title: 'Custom Categories.',
+            icon: FiFolder,
+            description:
+                'Organize your tasks by preset categories or personalize them by subjects like math, science, or history. Your workspace, your rules.',
+            variant: 'inline',
+        },
+        {
+            title: 'Kickstart Timer.',
+            icon: FiFastForward,
+            description:
+                'Beat procrastination with a simple timer. Set a quick, manageable start time to get going - it\'s simple to continue once you\'ve begun.',
+            variant: 'inline',
+        },
+        {
+            title: 'Social Accountability.',
+            icon: FiUsers,
+            description:
+                'Connect with friends, share your progress, and keep each other accountable. Stay motivated by knowing your friends are watching.',
+            variant: 'inline',
+        },
+        {
+            title: 'Study Gamification.',
+            icon: LuGamepad2,
+            description:
+                'Turn studying into a game. Unlock achievements, collect rewards, and maintain streaks to stay motivated and make productivity fun.',
+            variant: 'inline',
+        },
+        {
+            title: 'Pomodoro Focus.',
+            icon: FiClock,
+            description:
+                'Utilize the proven Pomodoro technique to stay focused. Start a timer, work in bursts, and let Flowdepth handle your session breaks.',
+            variant: 'inline',
+        },
+    ]}
+    
+    />
+  )
+  // return (<></>);
+}
+
 const HighlightsSection = () => {
-  const { value, onCopy, hasCopied } = useClipboard('yarn add @saas-ui/react')
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Deep work">
+      <HighlightsItem colSpan={[1, null, 2]} title="Flow in deep work">
           <Text color="muted" fontSize="xl">
-            Our app&apos;s core philosophy is simple: <Em>deep work</Em>.
-            <Br />
-            We believe that deep work is the key to success, and we&apos;ve
-            built something that helps you achieve it.
+            Deep work is the core principle of flowdepth - the “depth” in flowdepth stands for deep work. <Br />
+            It&apos;s about immersing yourself in focused tasks, eliminating distractions and embracing the flow state. <Br />
+            This allows you to grasp complex concepts, solve problems, and produce quality work in less time. <Br />
+            With flowdepth, you will get things done and enjoy it too, improving your grades while freeing up time for other activities. 
           </Text>
       </HighlightsItem>
+      <HighlightsTestimonialItem
+        name="Onat"
+        description="Computer engineering student"
+        avatar="/static/images/testimonials/onat.jpg"
+        gradient={['green.600', 'primary.800']}
+      >
+        “As an engineering student, I've always timed my study sessions manually to keep track of my progress. With flowdepth, I can track my progress automatically and it doesn't feel like a chore anymore! It also has a social feature that lets you share your progress with friends, I don't have friends though.”
+      </HighlightsTestimonialItem>
       <HighlightsItem title="Two steps ahead">
         <Text color="muted" fontSize="lg">
         Gain an edge with focus and accountability. flowdepth keeps you sharp, motivated, and ahead of the competition.
-        </Text>
-      </HighlightsItem>
-      <HighlightsItem
-        colSpan={[1, null, 1]}
-        title="Cross platform"
-      >
-        <Text color="muted" fontSize="xl">
-          Track your progress across multiple devices and seamlessly sync your data.
         </Text>
       </HighlightsItem>
       <HighlightsItem
@@ -242,107 +374,6 @@ const HighlightsSection = () => {
   )
 }
 
-const FeaturesSection = () => {
-  // return (
-  //   <Features
-  //     id="features"
-  //     title={
-  //       <Heading
-  //         lineHeight="short"
-  //         fontSize={['2xl', null, '4xl']}
-  //         textAlign="left"
-  //         as="p"
-  //       >
-  //         Not your standard
-  //         <Br /> dashboard template.
-  //       </Heading>
-  //     }
-  //     description={
-  //       <>
-  //         Saas UI Pro includes everything you need to build modern frontends.
-  //         <Br />
-  //         Use it as a template for your next product or foundation for your
-  //         design system.
-  //       </>
-  //     }
-  //     align="left"
-  //     columns={[1, 2, 3]}
-  //     iconSize={4}
-  //     features={[
-  //       {
-  //         title: '#components.',
-  //         icon: FiBox,
-  //         description:
-  //           'All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Starterkits.',
-  //         icon: FiLock,
-  //         description:
-  //           'Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Documentation.',
-  //         icon: FiSearch,
-  //         description:
-  //           'Extensively documented, including storybooks, best practices, use-cases and examples.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Onboarding.',
-  //         icon: FiUserPlus,
-  //         description:
-  //           'Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Feature flags.',
-  //         icon: FiFlag,
-  //         description:
-  //           "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Upselling.',
-  //         icon: FiTrendingUp,
-  //         description:
-  //           '#components and hooks for upgrade flows designed to make upgrading inside your app frictionless.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Themes.',
-  //         icon: FiToggleLeft,
-  //         description:
-  //           'Includes multiple themes with darkmode support, always have the perfect starting point for your next project.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Generators.',
-  //         icon: FiTerminal,
-  //         description:
-  //           'Extend your design system while maintaininig code quality and consistency with built-in generators.',
-  //         variant: 'inline',
-  //       },
-  //       {
-  //         title: 'Monorepo.',
-  //         icon: FiCode,
-  //         description: (
-  //           <>
-  //             All code is available as packages in a high-performance{' '}
-  //             <Link href="https://turborepo.com">Turborepo</Link>, you have full
-  //             control to modify and adjust it to your workflow.
-  //           </>
-  //         ),
-  //         variant: 'inline',
-  //       },
-  //     ]}
-  //   />
-  // )
-  return (<></>);
-}
-
 const TestimonialsSection = () => {
   const columns = React.useMemo(() => {
     return testimonials.items.reduce<Array<typeof testimonials.items>>(
@@ -355,26 +386,23 @@ const TestimonialsSection = () => {
     )
   }, [])
 
-  // return (
-  //   <Testimonials
-  //     title={testimonials.title}
-  //     columns={[1, 2, 3]}
-  //     innerWidth="container.xl"
-  //   >
-  //     <>
-  //       {columns.map((column, i) => (
-  //         <Stack key={i} spacing="8">
-  //           {column.map((t, i) => (
-  //             <Testimonial key={i} {...t} />
-  //           ))}
-  //         </Stack>
-  //       ))}
-  //     </>
-  //   </Testimonials>
-  // )
-  
-  return <></>;
-  // testimonials temporarily disabled
+  return (
+    <Testimonials
+      title={testimonials.title}
+      columns={[1, 2, 3]}
+      innerWidth="container.xl"
+    >
+      <>
+        {columns.map((column, i) => (
+          <Stack key={i} spacing="8">
+            {column.map((t, i) => (
+              <Testimonial key={i} {...t} />
+            ))}
+          </Stack>
+        ))}
+      </>
+    </Testimonials>
+  )
 }
 
 const PricingSection = () => {
@@ -397,6 +425,16 @@ const FormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const snackbar = useSnackbar();
+
+  const showSnackbar = () => snackbar.success({
+    title: 'Free upgrade secured.',
+    description: 'Thank you for joining the waitlist! You will be hearing from us soon.',
+    status: 'success',
+    duration: 9000,
+    isClosable: true,
+  })
+
   const handleSubmit = async (values: { email: string }) => {
     setIsSubmitting(true);
     try {
@@ -404,20 +442,21 @@ const FormSection = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json', // Important to include
+          Accept: 'application/json',
         },
         body: JSON.stringify({
-          message: "New submission", // Customize this message if needed
-          email: values.email, // Pass email from the form
+          message: "New submission",
+          email: values.email,
           _email: {
-            from: values.email, // Set the from field if needed
-            subject: "A new user has joined the waitlist", // Customize subject as necessary
+            from: values.email,
+            subject: "A new user has joined the waitlist",
           },
         }),
       });
 
       if (response.ok) {
         setSubmitted(true);
+        showSnackbar();
       } else {
         console.error('Form submission failed');
       }
@@ -436,8 +475,8 @@ const FormSection = () => {
           <Heading as="h2" size="xl" fontWeight="bold">
             Join the flowdepth Waitlist
           </Heading>
-          <Text fontSize="lg" color="gray.600">
-            Be the first to know when we launch. Get updates, feature testing invites, and a free upgrade to Abyss!
+          <Text fontSize="lg" color="gray.600" textAlign="center">
+            Be the first to know when we launch. Get updates, feature testing invites, and a free upgrade to Abyss! <Br /> Spots are limited.
           </Text>
 
           {/* Form */}
@@ -449,11 +488,11 @@ const FormSection = () => {
                     name="email"
                     label="Email"
                     type="email"
-                    help="We'll send you updates about the app and the free upgrade to Abyss. No spam ever."
+                    help="We'll send you updates about the app and the free upgrade to Abyss. Your email won't be shared and you won't receive any spam."
                     rules={{ required: true }} // Assuming you have a way to validate this
                   />
                   <SubmitButton isLoading={isSubmitting} disableIfUntouched disableIfInvalid>
-                    Join the waitlist
+                    Secure my free upgrade
                   </SubmitButton>
                 </FormLayout>
               </Form>

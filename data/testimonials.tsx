@@ -1,35 +1,35 @@
 export default {
-  title: 'Loved by students',
+  title: "Don't just take our word for it",
   items: [
     {
-      name: 'Jalal',
-      description: '11th Grade Student',
-      avatar: '/static/images/avatar2.jpg',
+      name: 'Ahmet',
+      description: 'Student at 10th Grade',
+      avatar: '/static/images/testimonials/ahmet.jpg',
       children: (
         <>
-          “This was the solution I needed to stop wasting time and get work done.”
+          “I used to spend hours procrastinating, but now, the kickstart timer of flowdepth is what gets me going. Just a short timer feels less intimidating and once I get started, it&apos;s easy to continue. My grades have definitely gone up compared to last year!”
         </>
       ),
     },
     {
-      name: 'Mika',
-      description: 'Student at Diesterweg',
-      avatar: '/static/images/avatar2.jpg',
+      name: 'Nelvin',
+      description: 'Student at 11th Grade',
+      avatar: '/static/images/testimonials/nelvin.jpg',
       children: (
         <>
-          “I can't believe this app got me to stop playing Fortnite and actually get good grades”
+          “While doing your Abitur, managing your time well is key to doing well. flowdepth helps me do that and also keeps me accountable because I can share my progress with friends. It&apos;s more than just a pomodoro timer.”
         </>
       ),
     },
     {
-      name: 'Someone',
-      description: 'Student at TU Berlin',
-      avatar: '/static/images/avatar2.jpg',
+      name: 'Ömer',
+      description: 'Veterinary student',
+      avatar: '/static/images/testimonials/omer.jpg',
       children: (
         <>
-          “flowdepth has become an essential part of my producitivy. At this point I am unsure where I would be without it.”
+          “When I started using flowdepth, the accountability feature really clicked for me. My friends and I share progress with each other, and when someone&apos;s slacking, we ALWAYS call them out! It&apos;s an entirely different level of accountability when you know the slacker gets made fun of.”
         </>
       ),
-    }
+    },
   ],
 }

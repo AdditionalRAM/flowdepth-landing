@@ -58,7 +58,7 @@ export const HighlightsTestimonialItem: React.FC<
   return (
     <HighlightsItem
       justifyContent="center"
-      _dark={{ borderColor: 'whiteAlpha.300' }}
+      // _dark={{ borderColor: 'whiteAlpha.300' }}
       p="4"
       {...rest}
     >
